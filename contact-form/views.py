@@ -3,7 +3,7 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-from contactForm.models import ContactForm
+from contact-form.models import ContactForm
 from django.template import RequestContext, Context
 from django import forms
 from django.forms.widgets import *
