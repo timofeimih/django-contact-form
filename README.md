@@ -1,4 +1,18 @@
-django-contact-form
-===================
+Django themes
 
-django-contact-form
+============================
+
+Installing:
+
+pip install django_themes
+
+In settings:
+
+
+INSTALLED_APPS = (
+    ...
+    'themes',
+    ...
+)
+
+    
