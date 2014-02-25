@@ -3,5 +3,5 @@ from django.conf.urls.defaults import *
 import contactForm.views
 
 urlpatterns = patterns('',
-  url(r'^contacts/', 'contactForm.views.contactview'),
+  url(r'^contacts/', 'contact-form.views.contactview'),
 )
