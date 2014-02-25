@@ -13,7 +13,7 @@ setup(
     include_package_data=True,
     license='BSD License',  # example license
     description='Simple mail sender from ajax',
-    long_description=README,
+    long_description="",
     url='http://www.codesgroup.eu/',
     author='Timofei Mihhailov',
     author_email='timofeimih@gmail.com.com',
