@@ -16,6 +16,8 @@ def contactview(request):
 	message = request.POST.get('message', '') + u'<br/>Город: ' + request.POST.get('town', '') + u'<br/>Телефон: ' + request.POST.get('phone', '')
 	from_email = request.POST.get('email', '')
 
+	message = unicode(message);
+
 	if subject and message and from_email:
 	        try:
 				send_mail(subject, message, from_email, ['timofeimih@gmail.com'])
