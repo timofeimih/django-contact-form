@@ -12,9 +12,9 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 
 @ensure_csrf_cookie
 def contactview(request):
-	subject = u"Заказ от " + request.POST.get('name', '')
-	message = request.POST.get('message', '') + u'<br/>Город: ' + request.POST.get('town', '') + u'<br/>Телефон: ' + request.POST.get('phone', '')
-	from_email = request.POST.get('email', '')
+	subject = u"Заказ от ".encode('utf8') + request.POST.get('name', '').encode('utf8')
+	message = request.POST.get('message', '').encode('utf8') + u'<br/>Город: '.encode('utf8') + request.POST.get('town', '').encode('utf8') + u'<br/>Телефон: '.encode('utf8') + request.POST.get('phone', '').encode('utf8')
+	from_email = request.POST.get('email', '').encode('utf8')
 
 	message = message.encode('utf8')
 	subject = subject.encode('utf8')
