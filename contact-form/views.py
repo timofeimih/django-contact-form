@@ -9,11 +9,16 @@ from django import forms
 from django.forms.widgets import *
 from django.core.mail import send_mail, BadHeaderError
 from django.views.decorators.csrf import ensure_csrf_cookie
-
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import quopri
+def QuoHead(String):
+    s = quopri.encodestring(String.encode('UTF-8'), 1, 0)
+    return "=?utf-8?Q?" + s.decode('UTF-8') + "?="
 @ensure_csrf_cookie
 def contactview(request):
-	subject = u"Заказ от " + request.POST.get('name', '')
-	message = request.POST.get('message', '') + u'<br/>Город: ' + request.POST.get('town', '') + u'<br/>Телефон: ' + request.POST.get('phone', '')
+	subject =QuoHead("Заказ от " + request.POST.get('name', ''))
+	message = QuoHead(request.POST.get('message', '') + u'<br/>Город: ' + request.POST.get('town', '') + u'<br/>Телефон: ' + request.POST.get('phone', ''))
 	from_email = request.POST.get('email', '')
 
 	message = MIMEText(message.encode('utf-8'), 'plain', 'UTF-8')
