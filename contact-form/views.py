@@ -16,8 +16,8 @@ def contactview(request):
 	message = request.POST.get('message', '') + u'<br/>Город: ' + request.POST.get('town', '') + u'<br/>Телефон: ' + request.POST.get('phone', '')
 	from_email = request.POST.get('email', '')
 
-	message = message.encode('utf8')
-	subject	= subject.encode('utf8')
+	message = MIMEText(message.encode('utf-8'), 'plain', 'UTF-8')
+	subject	= MIMEText(subject.encode('utf-8'), 'plain', 'UTF-8')
 
 	if subject and message and from_email:
 	        try:
