@@ -12,12 +12,12 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 
 @ensure_csrf_cookie
 def contactview(request):
-	subject =request.POST.get('name', '')
-	message = request.POST.get('message', '')
+	subject = u"Заказ от " + request.POST.get('name', '')
+	message = request.POST.get('message', '') + u'<br/>Город: ' + request.POST.get('town', '') + u'<br/>Телефон: ' + request.POST.get('phone', '')
 	from_email = request.POST.get('email', '')
 
 	message = message.encode('utf8')
-	subject = subject.encode('utf8')
+	subject	= subject.encode('utf8')
 
 	if subject and message and from_email:
 	        try:
